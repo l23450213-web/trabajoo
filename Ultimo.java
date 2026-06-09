@@ -24,7 +24,6 @@ public class Ultimo {
     String preanalisis;
 
     // lexico
-
     public void lexico(String codigo) {
 
         Pattern p = Pattern.compile(
@@ -34,10 +33,9 @@ public class Ultimo {
         Matcher m = p.matcher(codigo);
 
         while (m.find()) {
-
             String tok = m.group();
 
-            if (tok.equals("int"))
+            if (tok.equals("int")) 
                 tokens.add(new Lexema(tok, "int"));
 
             else if (tok.equals("str"))
@@ -223,5 +221,10 @@ public void lista() {
         for(Lexema l : u.tokens){
             System.out.println(l);
         }
+u.preanalisis = u.tokens.get(0).tipo;
 
-       
+        u.programa();
+
+        System.out.println("\nAnálisis sintáctico correcto.");
+    }
+}
